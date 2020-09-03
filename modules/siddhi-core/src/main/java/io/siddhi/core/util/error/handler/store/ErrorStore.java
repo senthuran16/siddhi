@@ -136,6 +136,9 @@ public abstract class ErrorStore {
         }
     }
 
+    // TODO ERROR HANDLER - as same as the above ones
+//    public void saveOnStoreError();
+
     protected void save(String siddhiAppName, String streamName, ErroneousEvent erroneousEvent,
                         ErroneousEventType eventType, ErrorOccurrence errorOccurrence, ErrorType errorType)
             throws ErrorStoreException {

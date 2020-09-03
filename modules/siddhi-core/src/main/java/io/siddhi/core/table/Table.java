@@ -147,8 +147,26 @@ public abstract class Table implements FindableProcessor, MemoryCalculable {
                 LOG.error(ExceptionUtil.getMessageWithContext(e, siddhiAppContext) +
                         " Connection unavailable at Table '" + tableDefinition.getId() +
                         "', will retry connection immediately.", e);
+
+                // TODO ERROR HANDLER
+                /*
+                if (onErrorAction == STORE) { // TODO add an option for connectWithRetry
+                    ErrorStoreHelper.storeErroneousEvent(..addingEventChunk, STORE_ON_ADD_TO_TABLE..);
+                    - Same for update, read, delete ...
+                    - Implement storing ComplexEventChunk (look into reset event when iterating)
+                }
+                 */
+
+                /*
+                * @store(on.error=)  on.error=STORE, on.error=RETRY
+                * define table FooBar();
+                *
+                * */
+
                 connectWithRetry();
                 addEvents(addingEventChunk, noOfEvents);
+
+                // TODO ERROR HANDLER: If add succeeds during the retry, can't remove that evt from err store?
             } finally {
                 if (latencyTrackerInsert != null &&
                         Level.BASIC.compareTo(siddhiAppContext.getRootMetricsLevel()) <= 0) {

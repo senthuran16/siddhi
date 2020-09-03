@@ -29,7 +29,7 @@ public class ErrorEntry {
     private int id;
     private long timestamp;
     private String siddhiAppName;
-    private String streamName;
+    private String streamName; // TODO ERROR HANDLER: rename to streamOrTableName
     private byte[] eventAsBytes;
     private String cause;
     private String stackTrace;

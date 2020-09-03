@@ -28,4 +28,5 @@ public enum ErroneousEventType {
     EVENT_ARRAY,
     EVENT_LIST,
     PAYLOAD_STRING
+    // TODO ERROR HANDLER: add 'COMPLEX_EVENT_CHUNK'
 }
